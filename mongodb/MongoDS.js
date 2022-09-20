@@ -13,8 +13,7 @@ class MongoDS {
     async getAll(){
         try {
             let resultados = await this.Palabra.find();
-            let respuesta = await this.parseo(resultados)
-            console.log(respuesta)
+            let respuesta = await this.parseo(resultados);
             return respuesta;
         } catch (error){
             return []
@@ -36,7 +35,6 @@ class MongoDS {
                 metadata : {$regex : filtro, $options: 'i'}
             })
             let respuesta = await this.parseo(resultados);
-            console.log(respuesta);
             return respuesta
         } catch (error){
             console.log(error);
@@ -58,7 +56,6 @@ class MongoDS {
                 termino : {$regex : filtro, $options : 'i'}
             })
             let respuesta = await this.parseo(resultados);
-            console.log(respuesta)
             return respuesta;
         } catch (error){
             return [];

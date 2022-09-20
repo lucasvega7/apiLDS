@@ -13,12 +13,13 @@ const config = {
     'Access-Control-Allow-Origin': '*',
     'allowedHeaders' : ['Content-Type', 'Authorization', 'token']
 };
-app.use(cors(config));
+const heimdalljr = require('./middlewares/heimdalljr.js');
 // Middlewares
+app.use(cors(config));
 app.use(morgan(process.env.NODE_ENV));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-
+app.use(heimdalljr);
 // Definicion de rutas:
 
 app.use('/api/v1/palabras', require('./rutas/palabras'));
