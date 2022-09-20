@@ -10,6 +10,7 @@
  * rechazando la peticion
  */
 module.exports = async function (req, res, next) {
+  console.log('LOS HEADERS SON: ', req.headers);
 
   if(req.headers.heimdall_auth){ // Si recibe un token
     console.log('Se ha recibido token heimdall auth. Se realiza autenticacion.');

@@ -7,7 +7,6 @@ const response = require('../utils/response');
 
 router.get('/', async (req, res) => {
     try {
-        console.log('LOS HEADERS SON: ', req.headers);
         const response = await DataSource.getAll();
         res.json(response);
     } catch (error){
