@@ -19,7 +19,9 @@ app.use(cors(config));
 app.use(morgan(process.env.NODE_ENV));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(heimdalljr);
+if(process.env.middleware === "activo"){
+    app.use(heimdalljr);
+}
 // Definicion de rutas:
 
 app.use('/api/v1/palabras', require('./rutas/palabras'));
